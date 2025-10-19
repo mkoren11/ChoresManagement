@@ -1,5 +1,6 @@
 from django.db import models
 
+
 # Create your models here.
 from django.db import models
 from django.conf import settings
@@ -21,14 +22,7 @@ class UserPreference(models.Model):
 
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-
-    class Meta:
-        verbose_name = "Налаштування користувача"
-        verbose_name_plural = "Налаштування користувачів"
-
-    def __str__(self):
-        return f"Налаштування для {self.user.username}"
-
+from .models import User
 
 class UserCategoryPreference(models.Model):
     LIKE = "like"
@@ -98,6 +92,7 @@ class UserPhysicalLimitation(models.Model):
         unique_together = ("user", "limitation")
 
     def __str__(self):
-        return f"{self.user.username} - {
-self.limitation.name
-}" 
+        return f"{self.user.username} - {self.limitation.name}" 
+
+    
+
